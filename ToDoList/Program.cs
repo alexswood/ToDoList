@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ToDoList
 {
@@ -11,7 +7,48 @@ namespace ToDoList
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the ToDo list creator!");
-            Console.ReadLine();
+
+            Option option = GetOption();
+
+            while (option == Option.None)
+            {
+                Console.WriteLine("\r\nSorry that's not a valid option, please try again:");
+                option = GetOption();
+            }
+
+            switch (option)
+            {
+                case Option.None:
+                    break;
+                case Option.Create:
+                    Console.WriteLine("\r\nAwesome, you want to create a new ToDo, let's get started...");
+                    Console.ReadLine();
+                    break;
+                default:
+                    break;
+            }
         }
+
+        private static Option GetOption()
+        {
+            Option option = Option.None;
+
+            Console.WriteLine("\r\nWhat would you like to do?");
+            Console.WriteLine("1. Create a new ToDo");
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                option = Option.Create;
+            }
+
+            return option;
+        }
+    }
+
+    enum Option
+    {
+        None,
+        Create
     }
 }
