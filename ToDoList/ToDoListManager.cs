@@ -6,6 +6,7 @@
     internal class ToDoListManager
     {
         ToDoListStore store;
+        ToDoItems items = new ToDoItems();
 
         /// <summary>
         /// Default Constructor
@@ -17,11 +18,14 @@
         }
 
         /// <summary>
-        /// Create a new ToDo item.
+        /// Create and store a new ToDo item.
         /// </summary>
         public void CreateToDo(string title, string description)
         {
             ToDoItem item = new ToDoItem(title, description);
+            items.Items.Add(item);
+
+            store.Add(item);
         }
     }
 }

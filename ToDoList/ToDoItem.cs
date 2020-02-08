@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the structure of a todo item.
     /// </summary>
-    internal class ToDoItem
+    public class ToDoItem
     {
         /// <summary>
         /// Default constructor.
