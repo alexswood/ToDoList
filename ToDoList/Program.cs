@@ -45,10 +45,4 @@ namespace ToDoList
             return option;
         }
     }
-
-    enum Option
-    {
-        None,
-        Create
-    }
 }
