@@ -10,7 +10,7 @@ namespace ToDoListTest
         ToDoListStore mockToDoListStore = Substitute.For<ToDoListStore>();
 
         [Test]
-        public void CreateToDo_ShouldCall_ToDoListStore_Add()
+        public void CreateToDo_ShouldCall_ToDoListStore_Write()
         {
             // Given
             string title = "test title";
@@ -21,7 +21,14 @@ namespace ToDoListTest
             manager.CreateToDo(title, description);
 
             // Then
-            mockToDoListStore.Received(1).Add(Arg.Is<ToDoItem>(x => x.Title == title && x.Description == description));
+            mockToDoListStore.Received(1).Write(
+                Arg.Is<ToDoItems>(
+                    x =>
+                    x.Items.Count == 1 &&
+                    x.Items[0].Title == title &&
+                    x.Items[0].Description == description
+                    )
+                );
         }
     }
 }

@@ -25,7 +25,7 @@
             ToDoItem item = new ToDoItem(title, description);
             items.Items.Add(item);
 
-            store.Add(item);
+            store.Write(items);
         }
     }
 }

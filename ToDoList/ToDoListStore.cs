@@ -6,9 +6,9 @@
     internal interface ToDoListStore
     {
         /// <summary>
-        /// Add a todo item to the todo list store.
+        /// Write the todo items to the todo list store.
         /// </summary>
-        /// <param name="toDoItem">The todo item to store.</param>
-        void Add(ToDoItem toDoItem);
+        /// <param name="toDoItem">The todo items to store.</param>
+        void Write(ToDoItems toDoItem);
     }
 }

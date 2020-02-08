@@ -6,7 +6,7 @@
     /// </summary>
     internal class ToDoListXmlStore : ToDoListStore
     {
-        public void Add(ToDoItem toDoItem)
+        public void Write(ToDoItems toDoItems)
         {
             throw new System.NotImplementedException();
         }
