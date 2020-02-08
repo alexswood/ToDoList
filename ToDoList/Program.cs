@@ -4,7 +4,19 @@ namespace ToDoList
 {
     class Program
     {
+        private static ToDoListManager manager;
+
         static void Main(string[] args)
+        {
+            manager = new ToDoListManager();
+
+            Run();
+        }
+
+        /// <summary>
+        /// Run.
+        /// </summary>
+        private static void Run()
         {
             Console.WriteLine("Welcome to the ToDo list creator!");
 
@@ -64,9 +76,9 @@ namespace ToDoList
             Console.WriteLine("Description:");
             string description = Console.ReadLine();
 
-            ToDoItem item = new ToDoItem(title, description);
+            manager.CreateToDo(title, description);
 
-            Console.WriteLine($"\r\nGreat! You've just created a new ToDo with title: '{item.Title}' and descripton: '{item.Description}'.");
+            Console.WriteLine($"\r\nGreat! You've just created a new ToDo with title: '{title}' and descripton: '{description}'.");
         }
     }
 }
