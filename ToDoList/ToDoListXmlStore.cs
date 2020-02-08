@@ -1,4 +1,7 @@
-﻿namespace ToDoList
+﻿using System.IO;
+using System.Xml.Serialization;
+
+namespace ToDoList
 {
     /// <summary>
     /// Define an implementation of the <see cref="ToDoListStore"/> that stores
@@ -6,9 +9,40 @@
     /// </summary>
     internal class ToDoListXmlStore : ToDoListStore
     {
-        public void Write(ToDoItems toDoItems)
+        string filepath = @"C:\\store.xml";
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="storeLocation">The location of the xml store.</param>
+        public ToDoListXmlStore(string storeFilepath)
         {
-            throw new System.NotImplementedException();
+            filepath = storeFilepath;
+            
+            Directory.CreateDirectory(Path.GetDirectoryName(storeFilepath));
+        }
+
+        /// <summary>
+        /// Write the todo items to file.
+        /// </summary>
+        /// <param name="items"></param>
+        public void Write(ToDoItems items)
+        {
+            Serialise(items);
+        }
+
+        /// <summary>
+        /// Serialise the given items into an xml document.
+        /// </summary>
+        /// <param name="item"></param>
+        private void Serialise(ToDoItems item)
+        {
+            XmlSerializer serialiser = new XmlSerializer(typeof(ToDoItems));
+
+            using (TextWriter writer = new StreamWriter(filepath))
+            {
+                serialiser.Serialize(writer, item);
+            }
         }
     }
 }

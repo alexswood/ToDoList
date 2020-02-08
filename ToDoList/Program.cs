@@ -9,7 +9,7 @@ namespace ToDoList
 
         static void Main(string[] args)
         {
-            xmlStore = new ToDoListXmlStore();
+            xmlStore = new ToDoListXmlStore(@"C:\");
             manager = new ToDoListManager(xmlStore);
 
             Run();

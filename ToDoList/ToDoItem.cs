@@ -1,10 +1,18 @@
 ﻿namespace ToDoList
 {
     /// <summary>
-    /// Defines the structure of a todo item.
+    /// Define the structure of a todo item.
     /// </summary>
     public class ToDoItem
     {
+        /// <summary>
+        /// Parameterless constructor for serialisation.
+        /// </summary>
+        public ToDoItem()
+        {
+
+        }
+
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -19,11 +27,11 @@
         /// <summary>
         /// Gets the title of the todo item.
         /// </summary>
-        public string Title { get; internal set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets the description of the todo item.
         /// </summary>
-        public string Description { get; internal set; }
+        public string Description { get; set; }
     }
 }
