@@ -4,11 +4,13 @@ namespace ToDoList
 {
     class Program
     {
+        private static ToDoListStore xmlStore;
         private static ToDoListManager manager;
 
         static void Main(string[] args)
         {
-            manager = new ToDoListManager();
+            xmlStore = new ToDoListXmlStore();
+            manager = new ToDoListManager(xmlStore);
 
             Run();
         }

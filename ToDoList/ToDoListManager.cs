@@ -5,11 +5,15 @@
     /// </summary>
     internal class ToDoListManager
     {
+        ToDoListStore store;
+
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public ToDoListManager()
+        /// <param name="toDoListStore">The object used to store todo items.</param>
+        public ToDoListManager(ToDoListStore toDoListStore)
         {
+            store = toDoListStore;
         }
 
         /// <summary>

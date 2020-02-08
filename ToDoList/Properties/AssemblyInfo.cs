@@ -37,3 +37,7 @@ using System.Runtime.InteropServices;
 
 // Make internal classes visible to ToDoListTest class for testing
 [assembly: InternalsVisibleTo("ToDoListTest")]
+
+// DynamicProxyGenAssembly2 is a temporary assembly built by mocking systems that use CastleProxy (like NSubsitute).
+// It is generated when the mock is needed and disposed of after the tests are finished.
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
